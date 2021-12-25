@@ -1,7 +1,7 @@
 import numpy as np
 
 from typing import List
-from function import Function
+from pynet.functional.abstract import Function
 from pynet.tensor import Tensor
 
 
@@ -30,7 +30,7 @@ class Multiply(Function):
         a = self._stored_results["a"]
         b = self._stored_results["b"]
 
-        da = np.matmul(y, b.ndarray.T)
-        db = np.matmul(a.ndarray.T, y)
+        da = np.matmul(y.ndarray, b.ndarray.T)
+        db = np.matmul(a.ndarray.T, y.ndarray)
 
         return [Tensor(da), Tensor(db)]

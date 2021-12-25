@@ -1,7 +1,7 @@
 import numpy as np
 
-from module import Module
-from initializer import he_normal
+from pynet.nn.abstract import Module
+from pynet.nn.initializer import he_normal
 from pynet.functional.add import Add
 from pynet.functional.multiply import Multiply
 from pynet.tensor import Tensor
@@ -12,7 +12,7 @@ class Linear(Module):
         super().__init__()
 
         self.weights = he_normal(inputs, neurons)
-        self.bias = Tensor(np.zeros(neurons))
+        self.bias = Tensor(np.zeros((neurons, 1)))
 
         self.__add = Add()
         self.__multiply = Multiply()

@@ -1,5 +1,5 @@
 from typing import List
-from pynet.nn.module import Module
+from pynet.nn.abstract import Module
 from pynet.tensor import Tensor
 
 
@@ -20,3 +20,6 @@ class Sequential(Module):
             y = module.backward(y)
 
         return y
+
+    def get(self, idx: int) -> Module:
+        return self.__modules[idx]
