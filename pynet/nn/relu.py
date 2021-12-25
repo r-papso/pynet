@@ -1,0 +1,20 @@
+import numpy as np
+from pynet.functional.max import Max
+from pynet.nn.module import Module
+from pynet.tensor import Tensor
+
+
+class ReLU(Module):
+    def __init__(self) -> None:
+        super().__init__()
+
+        self.__max = Max()
+
+    def forward(self, x: Tensor) -> Tensor:
+        zeros = Tensor(np.zeros_like(x))
+        y = self.__max.forward([x, zeros])
+        return y
+
+    def backward(self, y: Tensor) -> Tensor:
+        dx, dzeros = self.__max.backward(y)
+        return dx
