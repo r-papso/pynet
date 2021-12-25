@@ -1,5 +1,5 @@
 import pynet.functional.sigmoid
-from pynet.nn.module import Module
+from pynet.nn.abstract import Module
 from pynet.tensor import Tensor
 
 
@@ -10,7 +10,7 @@ class Sigmoid(Module):
         self.__sigmoid = pynet.functional.sigmoid.Sigmoid()
 
     def forward(self, x: Tensor) -> Tensor:
-        y = self.__sigmoid.forward(x)
+        y = self.__sigmoid.forward([x])
         return y
 
     def backward(self, y: Tensor) -> Tensor:

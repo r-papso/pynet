@@ -1,7 +1,7 @@
 from typing import List
 
 import numpy as np
-from pynet.functional.function import Function
+from pynet.functional.abstract import Function
 from pynet.tensor import Tensor
 
 
@@ -21,6 +21,6 @@ class Sigmoid(Function):
         sig = self._stored_results["sig"]
 
         dsig = np.multiply(sig, 1.0 - sig)
-        dsig = np.multiply(dsig, y)
+        dsig = np.multiply(dsig, y.ndarray)
 
         return [Tensor(dsig)]

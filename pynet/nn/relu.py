@@ -1,6 +1,6 @@
 import numpy as np
 from pynet.functional.max import Max
-from pynet.nn.module import Module
+from pynet.nn.abstract import Module
 from pynet.tensor import Tensor
 
 
@@ -11,7 +11,7 @@ class ReLU(Module):
         self.__max = Max()
 
     def forward(self, x: Tensor) -> Tensor:
-        zeros = Tensor(np.zeros_like(x))
+        zeros = Tensor(np.zeros_like(x.ndarray))
         y = self.__max.forward([x, zeros])
         return y
 

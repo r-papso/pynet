@@ -1,11 +1,9 @@
-import random
 import numpy as np
-from typing import List
-from pynet.data.dataset import Dataset
+from pynet.data.abstract import Dataset
 
 
 class InMemoryDataset(Dataset):
-    def __init__(self, x: List[np.ndarray], y: List[np.ndarray]) -> None:
+    def __init__(self, x: np.ndarray, y: np.ndarray) -> None:
         super().__init__()
 
         assert len(x) == len(y), "x and y must have same length"
@@ -25,6 +23,5 @@ class InMemoryDataset(Dataset):
     def reset(self):
         super().reset()
 
-        zipped = list(zip(self.__x, self.__y))
-        random.shuffle(zipped)
-        self.__x, self.__y = zip(*zipped)
+        p = np.random.permutation(len(self.__x))
+        self.__x, self.__y = self.__x[p], self.__y[p]
