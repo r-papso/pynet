@@ -1,3 +1,4 @@
+from typing import List
 import numpy as np
 from pynet.functional.max import Max
 from pynet.nn.abstract import Module
@@ -18,3 +19,6 @@ class ReLU(Module):
     def backward(self, y: Tensor) -> Tensor:
         dx, dzeros = self.__max.backward(y)
         return dx
+
+    def get_parameters(self) -> List[Tensor]:
+        return []

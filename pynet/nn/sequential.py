@@ -1,4 +1,6 @@
 from typing import List
+
+from numpy import mod
 from pynet.nn.abstract import Module
 from pynet.tensor import Tensor
 
@@ -23,3 +25,13 @@ class Sequential(Module):
 
     def get(self, idx: int) -> Module:
         return self.__modules[idx]
+
+    def get_parameters(self) -> List[Tensor]:
+        params = []
+
+        for module in self.__modules:
+            mparams = module.get_parameters()
+            if mparams:
+                params.extend(mparams)
+
+        return params
