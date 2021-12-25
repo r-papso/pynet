@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import List
 
 from pynet.tensor import Tensor
 
@@ -13,4 +14,8 @@ class Module(ABC):
 
     @abstractmethod
     def backward(self, y: Tensor) -> Tensor:
+        pass
+
+    @abstractmethod
+    def get_parameters(self) -> List[Tensor]:
         pass

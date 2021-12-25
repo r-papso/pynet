@@ -1,3 +1,4 @@
+from typing import List
 import numpy as np
 
 from pynet.nn.abstract import Module
@@ -26,7 +27,10 @@ class Linear(Module):
         dy, dbias = self.__add.backward(y)
         dw, dx = self.__multiply.backward(dy)
 
-        self.weights.grad = dw
-        self.bias.grad = dbias
+        self.weights.grad = dw.ndarray
+        self.bias.grad = dbias.ndarray
 
         return dx
+
+    def get_parameters(self) -> List[Tensor]:
+        return [self.weights, self.bias]
