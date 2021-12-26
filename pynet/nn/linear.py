@@ -1,18 +1,18 @@
 import numpy as np
 from typing import List
 
+from pynet.initializers.abstract import Initializer
 from pynet.nn.abstract import Module
-from pynet.nn.initializer import he_normal
 from pynet.functional.add import Add
 from pynet.functional.multiply import Multiply
 from pynet.tensor import Tensor
 
 
 class Linear(Module):
-    def __init__(self, inputs: int, neurons: int) -> None:
+    def __init__(self, inputs: int, neurons: int, initializer: Initializer) -> None:
         super().__init__()
 
-        self.weights = he_normal(inputs, neurons)
+        self.weights = initializer.initialize(inputs, neurons)
         self.bias = Tensor(np.zeros((neurons, 1)))
 
         self.__add = Add()
