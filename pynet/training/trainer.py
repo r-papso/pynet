@@ -1,6 +1,6 @@
+import numpy as np
 from typing import Dict, List
 
-import numpy as np
 from pynet.nn.abstract import Module
 from pynet.data.abstract import Dataset
 from pynet.loss.abstract import Loss

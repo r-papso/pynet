@@ -1,5 +1,5 @@
-from typing import List
 import numpy as np
+from typing import List
 
 from pynet.nn.abstract import Module
 from pynet.nn.initializer import he_normal

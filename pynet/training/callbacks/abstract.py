@@ -1,4 +1,5 @@
 from abc import ABC
+
 from pynet.training.history import History
 
 

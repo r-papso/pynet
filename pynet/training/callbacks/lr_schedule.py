@@ -1,4 +1,5 @@
 from typing import Callable
+
 from pynet.optimizers.abstract import Optimizer
 from pynet.training.callbacks.abstract import Callback
 from pynet.training.history import History

@@ -1,6 +1,6 @@
+import numpy as np
 from typing import List
 
-import numpy as np
 from pynet.optimizers.abstract import Optimizer
 from pynet.tensor import Tensor
 

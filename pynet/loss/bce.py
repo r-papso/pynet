@@ -1,6 +1,7 @@
 import math
-from typing import Dict
 import numpy as np
+from typing import Dict
+
 from pynet.loss.abstract import Loss
 from pynet.tensor import Tensor
 
