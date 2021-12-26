@@ -1,6 +1,6 @@
+import numpy as np
 from typing import List
 
-import numpy as np
 from pynet.functional.abstract import Function
 from pynet.tensor import Tensor
 

@@ -1,4 +1,5 @@
 from typing import List
+
 import pynet.functional.sigmoid
 from pynet.nn.abstract import Module
 from pynet.tensor import Tensor

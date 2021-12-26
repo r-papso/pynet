@@ -1,6 +1,5 @@
 from typing import List
 
-from numpy import mod
 from pynet.nn.abstract import Module
 from pynet.tensor import Tensor
 

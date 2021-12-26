@@ -1,5 +1,6 @@
-from typing import List
 import numpy as np
+from typing import List
+
 from pynet.functional.max import Max
 from pynet.nn.abstract import Module
 from pynet.tensor import Tensor

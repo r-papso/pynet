@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import Dict
 
 from pynet.tensor import Tensor
 
@@ -10,7 +11,7 @@ class Loss(ABC):
         self._stored_results = dict()
 
     @abstractmethod
-    def forward(self, x: Tensor, y: Tensor) -> float:
+    def forward(self, x: Tensor, y: Tensor) -> Dict[str, float]:
         pass
 
     @abstractmethod
