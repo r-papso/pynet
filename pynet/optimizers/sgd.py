@@ -6,14 +6,19 @@ from pynet.tensor import Tensor
 
 
 class SGD(Optimizer):
-    def __init__(self, params: List[Tensor], learning_rate: float, momentum: float) -> None:
-        self.__params = params
-        self.__history = self.__create_history(params)
+    def __init__(self, learning_rate: float, momentum: float) -> None:
         self.__lr = learning_rate
         self.__momentum = momentum
         self.__t = 0
 
+    def set_parameters(self, params: List[Tensor]) -> None:
+        self.__params = params
+        self.__history = self.__create_history(params)
+
     def step(self) -> None:
+        if not self.__params:
+            raise ValueError("Parameters not set, call set_params function to set the parameters")
+
         for i, (param, hist) in enumerate(zip(self.__params, self.__history)):
             grad = param.grad
 
