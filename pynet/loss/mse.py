@@ -1,3 +1,4 @@
+from typing import Dict
 import numpy as np
 from pynet.loss.abstract import Loss
 from pynet.tensor import Tensor
@@ -7,7 +8,7 @@ class MeanSquaredError(Loss):
     def __init__(self) -> None:
         super().__init__()
 
-    def forward(self, x: Tensor, y: Tensor) -> float:
+    def forward(self, x: Tensor, y: Tensor) -> Dict[str, float]:
         assert all(
             [s == 1 for s in x.ndarray.shape]
         ), "BinaryCrossEntropy -> x input must be scalar"
@@ -22,7 +23,8 @@ class MeanSquaredError(Loss):
         self._stored_results["y"] = y_scalar
         self._stored_results["x_shape"] = x.ndarray.shape
 
-        return (y_scalar - x_scalar) ** 2.0
+        loss = (y_scalar - x_scalar) ** 2.0
+        return {"loss": loss}
 
     def backward(self) -> Tensor:
         x = self._stored_results["x"]

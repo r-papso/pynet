@@ -1,8 +1,5 @@
 from abc import ABC
-from typing import List
 from pynet.training.history import History
-
-from pynet.training.stats import Statistics
 
 
 class Callback(ABC):
