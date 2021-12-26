@@ -48,7 +48,7 @@ class Trainer:
                 for xi, yi in val_dataset:
                     self.__run_batch(model, xi, yi, loss_f, stats, "val_")
 
-            history.add(epoch + 1, list(stats.values()))
+            history.add(epoch, list(stats.values()))
 
             for c in callbacks:
                 c.on_epoch_end(history)
@@ -68,7 +68,7 @@ class Trainer:
         for xi, yi in test_dataset:
             self.__run_batch(model, xi, yi, loss_f, stats, "test_")
 
-        history.add(1, list(stats.values()))
+        history.add(0, list(stats.values()))
 
         for c in callbacks:
             c.on_test_end(history)

@@ -7,8 +7,11 @@ from pynet.tensor import Tensor
 
 class SGD(Optimizer):
     def __init__(self, learning_rate: float, momentum: float) -> None:
-        self.__lr = learning_rate
-        self.__momentum = momentum
+        super().__init__()
+
+        self.hyperparameters["lr"] = learning_rate
+        self.hyperparameters["momentum"] = momentum
+
         self.__t = 0
 
     def set_parameters(self, params: List[Tensor]) -> None:
@@ -19,19 +22,22 @@ class SGD(Optimizer):
         if not self.__params:
             raise ValueError("Parameters not set, call set_params function to set the parameters")
 
+        lr = self.hyperparameters["lr"]
+        momentum = self.hyperparameters["momentum"]
+
         for i, (param, hist) in enumerate(zip(self.__params, self.__history)):
             grad = param.grad
 
-            if self.__momentum > 0.0:
+            if momentum > 0.0:
                 if self.__t > 0:
-                    hist = self.__momentum * hist + (1.0 - self.__momentum) * grad
+                    hist = momentum * hist + (1.0 - momentum) * grad
                 else:
                     hist = grad.copy()
 
                 grad = hist
                 self.__history[i] = hist
 
-            weights = param.ndarray - self.__lr * grad
+            weights = param.ndarray - lr * grad
             self.__params[i].ndarray = weights
             self.__params[i].grad = None
             self.__t += 1

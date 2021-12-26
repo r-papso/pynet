@@ -14,6 +14,6 @@ class PrintCallback(Callback):
 
     def __print_last_hist_row(self, history: History):
         row = history.rows[-1]
-        text = f"Epoch {row.epoch:04d} -> "
+        text = f"Epoch {row.epoch + 1:04d} -> "
         text += ", ".join([f"{stat.name}: {stat.mean():.4f}" for stat in row.stats])
         print(text)

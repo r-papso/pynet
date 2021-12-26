@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Custom files and directories
+training_visualization/
+testing.ipynb
