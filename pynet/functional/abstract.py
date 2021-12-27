@@ -19,7 +19,7 @@ class Function(ABC):
 
         Function can have arbitrary number of operands, however, list <x> should be of the same 
         length as the number of operands this function takes. If necessary, function can save 
-        itermediate results for the backward step in the self._stored_results dictionary.
+        intermediate results for the backward step in the self._stored_results dictionary.
 
         Args:
             x (List[Tensor]): Inputs (operands) to the function.
@@ -33,10 +33,10 @@ class Function(ABC):
     def backward(self, y: Tensor) -> List[Tensor]:
         """Performs backward step through the function.
 
-        Backward step is performed during the backpropagation procedure. At the backward 
-        step, the function receives gradient <y> and performs first derivation w.r.t.
-        each of its inputs <x> obtained during the forward step and returns these 
-        derivations at the same order as it received them during the forward step.
+        Backward step is performed during the backpropagation procedure. At the backward step, 
+        the function receives gradient <y> and performs first derivation w.r.t. each of its 
+        inputs <x> obtained during the forward step and returns these derivations at the same 
+        order as it received the inputs <x> during the forward step.
 
         Args:
             y (Tensor): Gradient from the consecutive function.

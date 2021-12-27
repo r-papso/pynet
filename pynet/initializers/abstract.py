@@ -4,7 +4,7 @@ from pynet.tensor import Tensor
 
 
 class Initializer(ABC):
-    """Abstract class representing neural network weights initializer."""
+    """Abstract class representing neural network's weights initializer."""
 
     def __init__(self) -> None:
         """Ctor"""

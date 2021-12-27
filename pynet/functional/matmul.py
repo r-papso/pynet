@@ -21,10 +21,10 @@ class Matmul(Function):
         super().__init__()
 
     def forward(self, x: List[Tensor]) -> Tensor:
-        assert len(x) == 2, "Multiply function takes 2 parameters"
+        assert len(x) == 2, "Matmul function takes 2 parameters"
         assert (
             x[0].ndarray.ndim <= 2 and x[1].ndarray.ndim <= 2
-        ), "Forward -> Multiplying tensors with dimensions > 2 are not supported, yet"
+        ), "Forward -> Matrix multiplication of tensors with dimensions > 2 are not supported, yet"
 
         y = np.matmul(x[0].ndarray, x[1].ndarray)
 
@@ -36,7 +36,7 @@ class Matmul(Function):
     def backward(self, y: Tensor) -> List[Tensor]:
         assert (
             y.ndarray.ndim <= 2
-        ), "Backward -> Multiplying tensors with dimensions > 2 are not supported, yet"
+        ), "Backward -> Matrix multiplication of tensors with dimensions > 2 are not supported, yet"
 
         a = self._stored_results["a"]
         b = self._stored_results["b"]

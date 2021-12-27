@@ -9,7 +9,21 @@ from pynet.tensor import Tensor
 
 
 class Linear(Module):
+    """Module representing fully connected (linear) neural network's layer.
+
+    Applies a linear transformation to the incoming data, module's function is defined as:
+    y = W * x + b, where x is module's input, y is module's output, W is weight matrix, 
+    and b is bias.
+    """
+
     def __init__(self, inputs: int, neurons: int, initializer: Initializer) -> None:
+        """Ctor
+
+        Args:
+            inputs (int): Number of inputs (lenght of input vector).
+            neurons (int): Number of layer's neurons (length of output vector).
+            initializer (Initializer): Weight initializer.
+        """
         super().__init__()
 
         self.weights = initializer.initialize(inputs, neurons)

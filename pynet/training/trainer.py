@@ -12,7 +12,10 @@ from pynet.training.stats import Statistics
 
 
 class Trainer:
+    """Class providing basic training/testing procedure of the neural network."""
+
     def __init__(self) -> None:
+        """Ctor."""
         super().__init__()
 
     def train(
@@ -24,9 +27,23 @@ class Trainer:
         optimizer: Optimizer,
         epochs: int,
         callbacks: List[Callback] = [],
-    ) -> None:
+    ) -> History:
+        """Function performing training procedure of the neural network.
+
+        Args:
+            model (Module): Neural network to be trained.
+            train_dataset (Dataset): Dataset that will be used for network's training.
+            val_dataset (Dataset): Dataset that will be used for network's validation (can be None).
+            loss_f (Loss): Neural network's loss function.
+            optimizer (Optimizer): Optimizer that will be used for network's optimization.
+            epochs (int): Number of training epochs.
+            callbacks (List[Callback], optional): List of callbacks called during the training. Defaults to [].
+
+        Returns:
+            History: Neural network's training history.
+        """
         history = History()
-        optimizer.set_parameters(model.get_parameters())
+        optimizer.register_parameters(model.get_parameters())
 
         for c in callbacks:
             c.on_train_begin()
@@ -56,9 +73,22 @@ class Trainer:
         for c in callbacks:
             c.on_train_end(history)
 
+        return history
+
     def test(
         self, model: Module, test_dataset: Dataset, loss_f: Loss, callbacks: List[Callback] = []
-    ) -> None:
+    ) -> History:
+        """Function performing testing procedure of the neural network.
+
+        Args:
+            model (Module): Neural network to be tested.
+            test_dataset (Dataset): Dataset that will be used for network's testing.
+            loss_f (Loss): Neural network's loss function.
+            callbacks (List[Callback], optional): List of callbacks called during the testing. Defaults to [].
+
+        Returns:
+            History: Neural network's testing history.
+        """
         for c in callbacks:
             c.on_test_begin()
 
@@ -72,6 +102,8 @@ class Trainer:
 
         for c in callbacks:
             c.on_test_end(history)
+
+        return history
 
     def __run_batch(
         self,

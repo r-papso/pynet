@@ -18,7 +18,7 @@ class Sigmoid(Function):
         super().__init__()
 
     def forward(self, x: List[Tensor]) -> Tensor:
-        assert len(x) == 1, "Sigmoid function takes 2 parameters"
+        assert len(x) == 1, "Sigmoid function takes 1 parameter"
 
         sig = 1.0 / (1.0 + np.exp(-x[0].ndarray))
         self._stored_results["sig"] = sig
