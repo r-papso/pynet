@@ -6,7 +6,14 @@ from pynet.tensor import Tensor
 
 
 class Max(Function):
+    """Function represents element-wise maximum function between two tensors.
+
+    Function takes two tensors as inputs (i. e. len(x) == 2 in the forward method) and outputs
+    an tensor representing the maximum operation result. Both inputs must have the same shape.
+    """
+
     def __init__(self) -> None:
+        """Ctor"""
         super().__init__()
 
     def forward(self, x: List[Tensor]) -> Tensor:

@@ -5,8 +5,19 @@ from pynet.functional.abstract import Function
 from pynet.tensor import Tensor
 
 
-class Multiply(Function):
+class Matmul(Function):
+    """Function represents matrix multiplication.
+
+    Function takes two tensors as inputs (i. e. len(x) == 2 in the forward function) 
+    and outputs an tensor representing the matrix multiplication operation result. 
+    At the current version, this operation supports only tensors with dimensions <= 2. 
+    
+    If x[0] is an m × n matrix and x[1] is an n × p matrix, the result is defined to be
+    the m × p matrix.
+    """
+
     def __init__(self) -> None:
+        """Ctor"""
         super().__init__()
 
     def forward(self, x: List[Tensor]) -> Tensor:

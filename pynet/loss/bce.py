@@ -7,7 +7,14 @@ from pynet.tensor import Tensor
 
 
 class BinaryCrossEntropy(Loss):
+    """Binary cross entropy implementation of the loss function. 
+    
+    Binary cross entropy is defined as: L(y, ŷ) = -(y * log(ŷ) + (1 - y) * log(1 - ŷ)) 
+    where y is ground truth label and ŷ is neural network's prediction.
+    """
+
     def __init__(self) -> None:
+        """Ctor"""
         super().__init__()
 
     def forward(self, x: Tensor, y: Tensor) -> Dict[str, float]:
