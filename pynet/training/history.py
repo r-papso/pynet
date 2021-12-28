@@ -4,7 +4,7 @@ from pynet.training.stats import Statistics
 
 
 class HistoryRow:
-    """Represents one history's record (row)."""
+    """Represents single history's record (row)."""
 
     def __init__(self, epoch: int, stats: List[Statistics]) -> None:
         """Ctor.

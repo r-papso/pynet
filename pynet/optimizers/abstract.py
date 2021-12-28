@@ -13,7 +13,7 @@ class Optimizer(ABC):
     """
 
     def __init__(self) -> None:
-        """Ctor"""
+        """Ctor."""
         super().__init__()
 
         self.hyperparameters = dict()
@@ -31,7 +31,7 @@ class Optimizer(ABC):
     def step(self) -> None:
         """Performs an optimization step.
         
-        At the step, all registered parameters will be updated to the new value.
+        After the step, all registered parameters will be updated to the new value.
         
         """
         pass

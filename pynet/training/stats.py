@@ -8,7 +8,7 @@ class Statistics:
         """Ctor.
 
         Args:
-            name (str): Name of the statistic
+            name (str): Name of the statistic.
         """
         self.name = name
 

@@ -17,7 +17,7 @@ class Linear(Module):
     """
 
     def __init__(self, inputs: int, neurons: int, initializer: Initializer) -> None:
-        """Ctor
+        """Ctor.
 
         Args:
             inputs (int): Number of inputs (lenght of input vector).

@@ -35,13 +35,13 @@ class Function(ABC):
 
         Backward step is performed during the backpropagation procedure. At the backward step, 
         the function receives gradient <y> and performs first derivation w.r.t. each of its 
-        inputs <x> obtained during the forward step and returns these derivations at the same 
+        inputs <x> obtained during the forward step and returns these derivatives at the same 
         order as it received the inputs <x> during the forward step.
 
         Args:
             y (Tensor): Gradient from the consecutive function.
 
         Returns:
-            List[Tensor]: List of first derivations w.r.t. each of the function's inputs.
+            List[Tensor]: List of first derivatives w.r.t. each of the function's inputs.
         """
         pass

@@ -3,7 +3,7 @@ from pynet.training.history import History
 
 
 class PrintCallback(Callback):
-    """Callback providing functionality for printing all the model's metrics on the console."""
+    """Callback providing functionality for printing all the model's metrics onto the console."""
 
     def __init__(self) -> None:
         """Ctor."""

@@ -9,9 +9,10 @@ from pynet.tensor import Tensor
 from pynet.training.callbacks.abstract import Callback
 from pynet.training.history import History
 from pynet.training.stats import Statistics
+from pynet.training.trainer.abstract import Trainer
 
 
-class Trainer:
+class DefaultTrainer(Trainer):
     """Class providing basic training/testing procedure of the neural network."""
 
     def __init__(self) -> None:
@@ -28,20 +29,6 @@ class Trainer:
         epochs: int,
         callbacks: List[Callback] = [],
     ) -> History:
-        """Function performing training procedure of the neural network.
-
-        Args:
-            model (Module): Neural network to be trained.
-            train_dataset (Dataset): Dataset that will be used for network's training.
-            val_dataset (Dataset): Dataset that will be used for network's validation (can be None).
-            loss_f (Loss): Neural network's loss function.
-            optimizer (Optimizer): Optimizer that will be used for network's optimization.
-            epochs (int): Number of training epochs.
-            callbacks (List[Callback], optional): List of callbacks called during the training. Defaults to [].
-
-        Returns:
-            History: Neural network's training history.
-        """
         history = History()
         optimizer.register_parameters(model.get_parameters())
 
@@ -78,17 +65,6 @@ class Trainer:
     def test(
         self, model: Module, test_dataset: Dataset, loss_f: Loss, callbacks: List[Callback] = []
     ) -> History:
-        """Function performing testing procedure of the neural network.
-
-        Args:
-            model (Module): Neural network to be tested.
-            test_dataset (Dataset): Dataset that will be used for network's testing.
-            loss_f (Loss): Neural network's loss function.
-            callbacks (List[Callback], optional): List of callbacks called during the testing. Defaults to [].
-
-        Returns:
-            History: Neural network's testing history.
-        """
         for c in callbacks:
             c.on_test_begin()
 

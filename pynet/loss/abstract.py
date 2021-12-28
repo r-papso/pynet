@@ -8,7 +8,7 @@ class Loss(ABC):
     """Abstract class representing loss function."""
 
     def __init__(self) -> None:
-        """Ctor"""
+        """Ctor."""
         super().__init__()
 
         self._stored_results = dict()
@@ -18,7 +18,7 @@ class Loss(ABC):
         """Performs forward step through the loss function.
 
         The <x> parameter represents neural network output, the <y> represents ground truth label 
-        of the sample. If necessary, function can save itermediate results for the backward step 
+        of the sample. If necessary, function can save intermediate results for the backward step 
         in the self._stored_results dictionary.
         
         Function should output all the possible measurable metrics, for the classification 
@@ -30,7 +30,8 @@ class Loss(ABC):
             y (Tensor): Ground truth label.
 
         Returns:
-            Dict[str, float]: All the possible measurable metrics for the loss function.
+            Dict[str, float]: All the possible measurable metrics for the loss function in format
+                { name_of_metric_1: value_of_metric_1, ..., name_of_metric_n: value_of_metric_n }.
         """
         pass
 
@@ -39,11 +40,11 @@ class Loss(ABC):
         """Performs backward step through the loss function.
 
         Backward step is performed during the backpropagation procedure. As the loss function 
-        isthe last instance in the computational graph, it does not receive any intermediate 
-        gradient tensor and should output derivative w.r.t. input <x> of the forward function 
-        (i. e. neural network's prediction).
+        is the last instance in the computational graph, it does not receive any intermediate 
+        gradient tensor and should output derivative w.r.t. input <x> (i. e. neural network's 
+        output) of the forward function.
 
         Returns:
-            Tensor: Derivative w.r.t. input <x> of the forward function (neural network's prediction).
+            Tensor: Derivative w.r.t. input <x> (neural network's output) of the forward function.
         """
         pass

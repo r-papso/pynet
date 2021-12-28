@@ -8,7 +8,7 @@ from pynet.tensor import Tensor
 class Matmul(Function):
     """Function represents matrix multiplication.
 
-    Function takes two tensors as inputs (i. e. len(x) == 2 in the forward function) 
+    Function takes two tensors as inputs (i. e. len(x) == 2 in the forward method) 
     and outputs an tensor representing the matrix multiplication operation result. 
     At the current version, this operation supports only tensors with dimensions <= 2. 
     

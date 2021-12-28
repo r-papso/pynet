@@ -13,7 +13,7 @@ class Sigmoid(Module):
     """
 
     def __init__(self) -> None:
-        """Ctor"""
+        """Ctor."""
         super().__init__()
 
         self.__sigmoid = pynet.functional.sigmoid.Sigmoid()

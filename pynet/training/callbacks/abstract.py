@@ -7,7 +7,7 @@ class Callback(ABC):
     """Abstract class representing callback object during the neural network training."""
 
     def __init__(self) -> None:
-        """Ctor"""
+        """Ctor."""
         super().__init__()
 
     def on_epoch_begin(self) -> None:

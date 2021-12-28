@@ -12,7 +12,7 @@ class LrSchedule(Callback):
         """Ctor.
 
         Args:
-            optimizer (Optimizer): Optimizer which learning rate will be scheduled
+            optimizer (Optimizer): Optimizer which learning rate will be scheduled.
             schedule (Callable[[int, float], float]): Learning rate scheduling function, 
                 the function takes number of epoch and current learning rate as parameters 
                 and outputs new learning rate based on these parameters.

@@ -8,7 +8,7 @@ class Module(ABC):
     """Abstract class representing neural network's module."""
 
     def __init__(self) -> None:
-        """Ctor"""
+        """Ctor."""
         super().__init__()
 
     @abstractmethod
