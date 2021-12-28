@@ -28,6 +28,14 @@ class BinaryCrossEntropy(Loss):
         x_scalar = np.squeeze(x.ndarray).item()
         y_scalar = np.squeeze(y.ndarray).item()
 
+        # Add or subtract very small value to prevent math domain error
+        # (i. e. taking the logarithm of zero).
+        epsilon = 1e-8
+        if x_scalar == 1.0:
+            x_scalar -= epsilon
+        if x_scalar == 0.0:
+            x_scalar += epsilon
+
         self._stored_results["x"] = x_scalar
         self._stored_results["y"] = y_scalar
         self._stored_results["x_shape"] = x.ndarray.shape
