@@ -85,6 +85,9 @@ import numpy as np
 
 from sklearn.datasets import make_circles
 
+# Tensor class
+from pynet.tensor import Tensor
+
 # Neural network modules
 from pynet.nn.sequential import Sequential
 from pynet.nn.linear import Linear
@@ -156,7 +159,7 @@ After training the neural network, we can use it for inference.
 ```python
 # Make prediction for the i-th sample in the dataset
 i = 0
-y_pred = model.forward(X[i]).ndarray.item()
+y_pred = model.forward(Tensor(X[i])).ndarray.item()
 ```
 
 ## Examples
