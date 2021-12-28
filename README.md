@@ -46,7 +46,7 @@ For the neural network's training/testing procedure, one can either use default 
 When using one of the [Trainer](./pynet/training/trainer/abstract.py)'s implementations, a [Callback](./pynet/training/callbacks/abstract.py) class was created to perform additional actions at various stages of training/testing procedure. There are a couple of callbacks implemented and ready to use, such as:
 
 - Callback providing printing all the measured model's metrics onto the console ([PrintCallback](./pynet/training/callbacks/print.py))
-- Callback providing optimizer's learning rate scheduling ([LrSchedule]((./pynet/training/callbacks/lr_schedule.py)))
+- Callback providing optimizer's learning rate scheduling ([LrSchedule](./pynet/training/callbacks/lr_schedule.py))
 
 One can also easily create their own callback by extending the [Callback](./pynet/training/callbacks/abstract.py) abstract class.
 
