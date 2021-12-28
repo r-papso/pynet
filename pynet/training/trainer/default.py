@@ -9,10 +9,14 @@ from pynet.tensor import Tensor
 from pynet.training.callbacks.abstract import Callback
 from pynet.training.history import History
 from pynet.training.stats import Statistics
+from pynet.training.trainer.abstract import Trainer
 
 
-class Trainer:
+class DefaultTrainer(Trainer):
+    """Class providing basic training/testing procedure of the neural network."""
+
     def __init__(self) -> None:
+        """Ctor."""
         super().__init__()
 
     def train(
@@ -24,9 +28,9 @@ class Trainer:
         optimizer: Optimizer,
         epochs: int,
         callbacks: List[Callback] = [],
-    ) -> None:
+    ) -> History:
         history = History()
-        optimizer.set_parameters(model.get_parameters())
+        optimizer.register_parameters(model.get_parameters())
 
         for c in callbacks:
             c.on_train_begin()
@@ -56,9 +60,11 @@ class Trainer:
         for c in callbacks:
             c.on_train_end(history)
 
+        return history
+
     def test(
         self, model: Module, test_dataset: Dataset, loss_f: Loss, callbacks: List[Callback] = []
-    ) -> None:
+    ) -> History:
         for c in callbacks:
             c.on_test_begin()
 
@@ -72,6 +78,8 @@ class Trainer:
 
         for c in callbacks:
             c.on_test_end(history)
+
+        return history
 
     def __run_batch(
         self,

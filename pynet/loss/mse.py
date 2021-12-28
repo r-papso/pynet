@@ -6,7 +6,14 @@ from pynet.tensor import Tensor
 
 
 class MeanSquaredError(Loss):
+    """Mean squared error implementation of the loss function.
+
+    Mean squared error is defined as: L(y, ŷ) = (y - ŷ)^2 where y is ground truth label 
+    and ŷ is neural network's prediction.
+    """
+
     def __init__(self) -> None:
+        """Ctor"""
         super().__init__()
 
     def forward(self, x: Tensor, y: Tensor) -> Dict[str, float]:

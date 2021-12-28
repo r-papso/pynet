@@ -3,7 +3,10 @@ from pynet.training.history import History
 
 
 class PrintCallback(Callback):
+    """Callback providing functionality for printing all the model's metrics onto the console."""
+
     def __init__(self) -> None:
+        """Ctor."""
         super().__init__()
 
     def on_epoch_end(self, history: History) -> None:
