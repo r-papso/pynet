@@ -9,10 +9,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pynet-dl",
-    version="0.0.6",
+    version="0.0.10",
     author="Rastislav Papso",
     author_email="rastislav.papso@gmail.com",
-    description="Deep learning building blocks",
+    description="Deep learning library",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/r-papso/pynet",
@@ -22,8 +22,18 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "pynet"},
-    packages=setuptools.find_packages(where="pynet"),
+    packages=[
+        "pynet",
+        "pynet.data",
+        "pynet.functional",
+        "pynet.initializers",
+        "pynet.loss",
+        "pynet.nn",
+        "pynet.optimizers",
+        "pynet.training",
+        "pynet.training.callbacks",
+        "pynet.training.trainer",
+    ],
     install_requires=["numpy>=1.21.2"],
     python_requires=">=3.9",
 )
