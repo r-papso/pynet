@@ -1,12 +1,12 @@
 # Pynet
 
-Pynet is a Python package containing all of the deep learning building blocks.
+Pynet is a Python library containing all of the deep learning building blocks.
 
 ## Features
 
 ### _Tensor operations_
 
-Tensor operations are included in the [pynet.functional](./pynet/functional) namespace. Pynet provides a couple of basic tensor operations such as matrix multiplication or tensor addition. New tensor operation can be created by implementing the [Function](./pynet/functional/abstract.py) abstract class. Tensor functions that are included in the package are:
+Tensor operations are included in the [pynet.functional](./pynet/functional) namespace. Pynet provides a couple of basic tensor operations such as matrix multiplication or tensor addition. New tensor operation can be created by implementing the [Function](./pynet/functional/abstract.py) abstract class. Tensor functions that are included in the library are:
 
 - Tensor addition [[link]](./pynet/functional/add.py)
 - Matrix multiplication [[link]](./pynet/functional/matmul.py)
@@ -15,7 +15,7 @@ Tensor operations are included in the [pynet.functional](./pynet/functional) nam
 
 ### _Neural network layers and activation functions_
 
-Implementation of neural network layers and activation functions are included in the [pynet.nn](./pynet/nn) namespace. The namespace contains basic layer and activation function implementations and can be extended by implementing the [Module](./pynet/nn/abstract.py) abstract class. List of layers and activation functions included in the Pynet package:
+Implementation of neural network layers and activation functions are included in the [pynet.nn](./pynet/nn) namespace. The namespace contains basic layer and activation function implementations and can be extended by implementing the [Module](./pynet/nn/abstract.py) abstract class. List of layers and activation functions included in the Pynet library:
 
 - Fully connected layer (Linear) [[link]](./pynet/nn/linear.py)
 - Sequential module (container for other modules) [[link]](./pynet/nn/sequential.py)
@@ -24,20 +24,20 @@ Implementation of neural network layers and activation functions are included in
 
 ### _Loss functions_
 
-Loss function implementations are included in the [pynet.loss](./pynet/loss) namespace. Custom loss functions can be created by implementing the [Loss](./pynet/loss/abstract.py) abstract class. Loss functions included in the Pynet packages are:
+Loss function implementations are included in the [pynet.loss](./pynet/loss) namespace. Custom loss functions can be created by implementing the [Loss](./pynet/loss/abstract.py) abstract class. Loss functions included in the Pynet library are:
 
 - Binary cross entropy [[link]](./pynet/loss/bce.py)
 - Mean squared error [[link]](./pynet/loss/mse.py)
 
 ### _Optimization algorithms_
 
-Optimization algorithm implementations are included in the [pynet.optimizers](./pynet/optimizers) namespace. New optimization algorithm can be created by implementing the [Optimizer](./pynet/optimizers/abstract.py) abstract class. Optimization algorithms included in the package:
+Optimization algorithm implementations are included in the [pynet.optimizers](./pynet/optimizers) namespace. New optimization algorithm can be created by implementing the [Optimizer](./pynet/optimizers/abstract.py) abstract class. Optimization algorithms included in the library:
 
 - Stochastic Gradient Descent (SGD) [[link]](./pynet/optimizers/sgd.py)
 
 ### _Data manipulation_
 
-[pynet.data](./pynet/data) namespace provides abstraction over the datasets used for training the neural network. [In-memory](./pynet/data/in_memory.py) dataset implementation is already included in the package, however one can create their own dataset implementation by extending the [Dataset](./pynet/data/abstract.py) abstract class.
+[pynet.data](./pynet/data) namespace provides abstraction over the datasets used for training the neural network. [In-memory](./pynet/data/in_memory.py) dataset implementation is already included in the library, however one can create their own dataset implementation by extending the [Dataset](./pynet/data/abstract.py) abstract class.
 
 ### _Neural network training_
 
@@ -66,7 +66,7 @@ Table below summarizes the feature section. Every row of a table contains name o
 
 ## Usage
 
-Here is the simple example how to use the Pynet package. In this example we are going to train a very small neural network on the make_circles dataset from sklearn.dataset package.
+Here is the simple example how to use the Pynet library. In this example we are going to train a very small neural network on the make_circles dataset from sklearn.dataset package.
 
 ### _Training_
 
@@ -153,7 +153,7 @@ y_pred = model.forward(X[i]).ndarray.item()
 
 ## Examples
 
-More examples of the Pynet package usage can be found in the [notebooks](./notebooks) directory.
+More examples of the Pynet library usage can be found in the [notebooks](./notebooks) directory.
 
 ## License
 
