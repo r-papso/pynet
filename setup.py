@@ -9,7 +9,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pynet-dl",
-    version="0.0.3",
+    version="0.0.4",
     author="Rastislav Papso",
     author_email="rastislav.papso@gmail.com",
     description="Deep learning building blocks",
