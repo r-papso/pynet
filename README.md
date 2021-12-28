@@ -64,6 +64,14 @@ Table below summarizes the feature section. Every row of a table contains name o
 | [pynet.training.trainer](./pynet/training/trainer)     | Neural network training/testing procedure         | [Trainer](./pynet/training/trainer/abstract.py)    |
 | [pynet.training.callbacks](./pynet/training/callbacks) | Callback functions during the training/testing    | [Callback](./pynet/training/callbacks/abstract.py) |
 
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pynet.
+
+```bash
+pip install pynet-dl
+```
+
 ## Usage
 
 Here is the simple example how to use the Pynet library. In this example we are going to train a very small neural network on the make_circles dataset from sklearn.dataset package.
@@ -72,7 +80,7 @@ Here is the simple example how to use the Pynet library. In this example we are 
 
 First, we need to import all the necessary stuff:
 
-```
+```python
 import numpy as np
 
 from sklearn.datasets import make_circles
@@ -102,7 +110,7 @@ from pynet.training.callbacks.print import PrintCallback
 
 Then, load the dataset and do preprocessing. As the single input to the neural network (i. e. sample xi) is supposed to be of shape [n_features x 1] (i. e. column vector), we need to add one extra dimension to the X array:
 
-```
+```python
 X, y = make_circles(n_samples=1000, noise=0.025)
 # inputs to neural net must be of shape [n, 1]
 X = np.expand_dims(X, axis=2)
@@ -110,7 +118,7 @@ X = np.expand_dims(X, axis=2)
 
 Then, we will create the network, dataset, optimizer, appropriate loss function, trainer and optionally also specify a list of callbacks:
 
-```
+```python
 epochs = 20
 
 model = Sequential([
@@ -129,7 +137,7 @@ trainer = DefaultTrainer()
 
 And then run the training:
 
-```
+```python
 trainer.train(
     model=model,
     train_dataset=dataset,
@@ -145,7 +153,7 @@ trainer.train(
 
 After training the neural network, we can use it for inference.
 
-```
+```python
 # Make prediction for the i-th sample in the dataset
 i = 0
 y_pred = model.forward(X[i]).ndarray.item()
